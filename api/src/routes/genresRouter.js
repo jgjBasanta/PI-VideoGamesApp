@@ -1,12 +1,10 @@
 const express = require('express');
 const {Router} = require('express');
-const {Videogame, Genre} = require('../../src/db.js');
+const getAllGenresHandler = require('../handlers/getAllGenresHandler');
 
 const genresRouter = Router();
 
 
-genresRouter.get('/', (req, res) => {
-    
-})
+genresRouter.get('/', getAllGenresHandler)
 
 module.exports = genresRouter;

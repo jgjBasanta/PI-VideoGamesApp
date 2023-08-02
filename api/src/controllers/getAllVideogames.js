@@ -18,11 +18,10 @@ const getGamesFromAPI = async () => {
             image: videogame.background_image,
             released: videogame.released,
             rating: videogame.rating,
+            
           }))
         );
       }
-  
-      console.log(dataFromAPI);
       return dataFromAPI;
     } catch (error) {
       console.error("Error while fetching data from the API:", error.message);
@@ -44,9 +43,9 @@ const getGamesFromDB = async () =>{
 }
 
 const getAllGames = async () => {
-    const gmesFromAPI = await getGamesFromAPI();
-    const gmesFromDB = await getGamesFromDB();
-    const allGames = gmesFromAPI.concat(gmesFromDB);
+    const gamesFromAPI = await getGamesFromAPI();
+    const gamesFromDB = await getGamesFromDB();
+    const allGames = gamesFromAPI.concat(gamesFromDB);
     return allGames;
 }
 
