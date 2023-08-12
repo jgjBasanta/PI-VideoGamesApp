@@ -24,8 +24,13 @@ const getAllGenres = async () => {
         const allGenres = await Genres.findAll();
         return allGenres;
     } catch (error) {
-        console.error("Error while fetching data from the API:", error.message);
-        throw error;
+      if (error.response && error.response.data && error.response.data.error) {
+          console.error("Error while fetching data from the API:", error.response.data.error);
+          throw new Error(`Failed to fetch genres. API error: ${error.response.data.error}`);
+      } else {
+          console.error("Error while fetching data from the API:", error.message);
+          throw new Error("Failed to fetch genres. An unknown error occurred.");
+      }
     }
 }
 

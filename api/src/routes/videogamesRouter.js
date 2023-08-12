@@ -7,7 +7,7 @@ const gamesRouter = Router();
 
 
 gamesRouter.get('/', getAllGamesHandler);
-gamesRouter.get('/?:id', getGamesByIDHandler);
+gamesRouter.get('/:id', getGamesByIDHandler);
 gamesRouter.post('/', postNewGamesHandler);
 
 module.exports = gamesRouter;

@@ -18,7 +18,8 @@ const getGamesFromAPI = async () => {
             image: videogame.background_image,
             released: videogame.released,
             rating: videogame.rating,
-            
+            genres: videogame.genres.map((genre) => ({
+             name: genre.name, id: genre.id})),
           }))
         );
       }

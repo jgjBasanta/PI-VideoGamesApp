@@ -1,5 +1,5 @@
 const {Videogame} = require('../db.js');
-const createVideoGame = require('../controllers/postNewGame');
+const {createVideoGame} = require('../controllers/postNewGame');
 const postGamesHandler = async (req,res)=>{
     const {name,description,platforms,image,released,rating,genre}= req.body;
     try {
