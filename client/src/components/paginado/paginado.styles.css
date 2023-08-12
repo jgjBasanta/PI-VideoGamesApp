@@ -1,0 +1,23 @@
+.page-link {
+    text-decoration: none;
+    color: white;
+    align-items: center;
+}
+
+.page-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.pagination-container {
+    border: 5px solid white;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

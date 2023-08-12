@@ -1,0 +1,42 @@
+.game-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #f96d00;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 16px;
+    /* cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out; */
+    width: 205px;
+    height: 400px;
+    margin: 28px;
+}
+
+.game-card:hover {
+    transform: scale(1.02);
+}
+
+.game-image {
+    width:  200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    margin: auto;
+}
+
+.game-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: white;
+}
+  
+.game-genres {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 8px;
+}
