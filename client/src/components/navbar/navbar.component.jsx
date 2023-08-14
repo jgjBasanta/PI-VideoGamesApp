@@ -2,9 +2,9 @@ import './navbar.styles.css';
 import React from 'react';
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {getGames, getGenres} from "../../redux/actions/index";
-import { filterGamesByGenres } from '../../redux/actions/index';
+import {  getGamesByName } from '../../redux/actions/index';
 
 const NavBar = ({
     allGenres, 
@@ -14,6 +14,18 @@ const NavBar = ({
     handleFilterBySource,
 })=>{
     const dispatch = useDispatch();
+    const [ name, setName ] = useState("");
+
+    function handleSearchChange(e){
+        e.preventDefault();
+        setName(e.target.value);
+        console.log(name)
+    }
+
+    function handleSubmit(e){
+        e.preventDefault();
+        dispatch(getGamesByName(name));
+    }
 
     return(
         <div className='navbar-container'>
@@ -23,10 +35,8 @@ const NavBar = ({
                 <option value='db'>DB Games</option>
             </select>
             <div className='searchbar-container'>
-                <form>
-                    <input type='text' placeholder='Search' className='searchbar'/>
-                    <input type='submit' className='search-button'/>
-                </form>
+                    <input type='text' placeholder='Search Games' className='searchbar' onChange={(e)=> handleSearchChange(e)}/>
+                    <button type='submit' onClick={(e)=> handleSubmit(e)}>Search</button>
             </div>
             <select onChange={e => handleFilteredGenres(e.target.value)} className='select-genres'>
                 <option value={'All Genres'}>All Genres</option>

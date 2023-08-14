@@ -29,7 +29,34 @@ export function filterBySource (payload){
 export function getGameByID(payload){
     const id = payload;
     return async function (dispatch){
-        let game = await axios.get(`http://localhost:3001/games/${id}`,{});
-        return dispatch({type:'GET_GAME_BY_ID', payload:game.data})
+        try{
+            let game = await axios.get(`http://localhost:3001/games/${id}`,{});
+            return dispatch({type:'GET_GAME_BY_ID', payload:game.data})    
+        }catch(error){
+
+        }
+    }
+}
+
+export function postGame(payload){
+    return async function (dispatch){
+        try{
+            const response = await axios.post('http://localhost:3001/games/', payload);
+            console.log(response);
+            return response;
+        } catch(error){
+            console.log(error)
+        }
+    }
+}
+
+export function getGamesByName(name){
+    return async function (dispatch){
+        try{
+            let games = await axios.get(`http://localhost:3001/games/?search=${name}`,{});
+            return dispatch({type:'GET_GAMES_BY_NAME', payload:games.data})
+        } catch(error){
+            console.log(error)
+        }
     }
 }

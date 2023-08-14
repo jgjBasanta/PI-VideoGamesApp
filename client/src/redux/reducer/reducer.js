@@ -43,6 +43,15 @@ function rootReducer(state = initialState, action) {
               ...state,
               gameDetails: action.payload
             }
+        case 'GET_GAMES_BY_NAME':
+            return {
+              ...state,
+              games: action.payload
+            }
+        case 'POST_GAME':
+            return {
+              ...state,
+            }
         
         default:
             return state;
