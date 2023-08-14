@@ -1,14 +1,17 @@
 const {Videogame} = require('../db.js');
-const {createVideoGame} = require('../controllers/postNewGame');
+const {createVideoGame, linkGenreToVideogame} = require('../controllers/postNewGame');
 const postGamesHandler = async (req,res)=>{
-    const {name,description,platforms,image,released,rating,genre}= req.body;
+    let {name,description,platforms,image,released,rating,genre}= req.body;
+    let newVideoGame = await createVideoGame(name,description,platforms,image,released,rating);
+
     try {
-        if(!name||!description||!platforms||!image||!released||!rating||!genre) throw Error("Missing data");
-    const newVideoGame = await createVideoGame(name,description,platforms,image,released,rating,genre);
-    
-    res.status(201).send(newVideoGame);
-        console.log(newVideoGame.dataValues);
+        if(!name||!description||!platforms||!image||!released||!rating) throw Error("Missing data");
+        newVideoGame;
+        newVideoGame.addGenre(linkGenreToVideogame(genre));
+        res.status(200).send(newVideoGame);
+        console.log(newVideoGame);
     } catch (error) {
+        console.log(error)
         res.status(400).send({error:error.message});
     }
 };
