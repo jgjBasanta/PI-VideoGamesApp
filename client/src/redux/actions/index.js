@@ -33,7 +33,7 @@ export function getGameByID(payload){
             let game = await axios.get(`http://localhost:3001/games/${id}`,{});
             return dispatch({type:'GET_GAME_BY_ID', payload:game.data})    
         }catch(error){
-
+            console.log(error)
         }
     }
 }

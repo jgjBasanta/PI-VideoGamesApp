@@ -39,26 +39,25 @@ function Home(){
         dispatch(getGenres())
     },[dispatch])
     
-    const handleClick = (e) => {
-        e.preventDefault();
-        dispatch(getGames());
-    }
+    // const handleClick = (e) => {
+    //     e.preventDefault();
+    //     dispatch(getGames());
+    // }
     
     const handleFilterByGenres = (selectedGenre) =>{
         dispatch(filterByGenres(selectedGenre));
     }
 
     const handleFilterBySource = (selectedSource) =>{
-        console.log(selectedSource);
         dispatch(filterBySource(selectedSource));
     }
 
     return(
         <div>
             <NavBar allGenres={allGenres} handleFilteredGenres={handleFilterByGenres} handleNameSort={handleNameSort} handleRatingSort={handleRatingSort} handleFilterBySource={handleFilterBySource}/>
-            <Link to="/game">crear juego
+            {/* <Link to="/game">crear juego
             <button onClick={e=>{handleClick(e)}}>load all games</button>
-            </Link>
+            </Link> */}
             {/* <Paginado gamesPerPage={gamesPerPage} allGames={allGames.length} setCurrentPage={setCurrentPage}/> */}
             <CardsContainer allGames ={allGames} games={games} order={order}/>
             
