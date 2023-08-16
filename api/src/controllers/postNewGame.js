@@ -1,4 +1,4 @@
-const { Videogame, Genre } = require('../db.js');
+const { Videogame, Genres } = require('../db.js');
 
 
 const createVideoGame = async (name,description,platforms,image,released,rating) => {
@@ -7,14 +7,14 @@ const createVideoGame = async (name,description,platforms,image,released,rating)
 
 };
 
-const linkGenreToVideogame = async (genre) => {
-    let findGenre = await Genre.findAll({
+const linkGenreToGame = async (genre) => {
+    let findGenre = await Genres.findAll({
         where: {name: genre}
     });
     return findGenre;
 }
 
 module.exports = {
-    linkGenreToVideogame,
+    linkGenreToGame,
     createVideoGame
 }
