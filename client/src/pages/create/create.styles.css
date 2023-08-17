@@ -5,10 +5,6 @@
     align-items: center;
 }
 
-.form-container form input{
-    width: 15rem;
-}
-
 .create-button{
     margin: 2rem;
     background-color: orange;
@@ -22,5 +18,121 @@
 }
 
 .form-error{
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    align-content: center;
+    font-size: 15px;
+    padding: 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.go-home {
+    text-decoration: none;
+}
+
+.form-title {
     color: white;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 10px;
+    border: 2px solid #37ff00;
+    padding: 10px 0;
+    background-color: black;
+    margin-right: 0;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+.form-input-container {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-label {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.create-form-select-genres {
+    width: 400px;
+    margin-right: 10px;
+    font-size: 14px;
+    outline: none;
+    text-align: center;
+    color: white;
+    background-color: #000000;
+    border: #37ff00 2px solid;
+    border-radius: 50px;
+    height: 30px;
+}
+
+.create-form-genres {
+    width: 500px;
+    color: #37ff00;
+    list-style-type: none;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: -50px;
+    margin-bottom: 5px;
+}
+
+.genres-li {
+    width: 500px;
+    color: white;
+    list-style-type: none;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: -50px;
+    margin-bottom: 15px;
+}
+
+.form-input-description {
+    display: flex;
+    width: 400px;
+    height: 100px;
+    border: 2px solid #37ff00;
+    padding: 10px 0;
+    background-color: black;
+    margin-right: 0;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+.create-button {
+    width: 100px;
+    height: 30px;
+    color: #000000;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    background-color: #37ff00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: #37ff00 2px solid;
+    margin-left: 0;
 }

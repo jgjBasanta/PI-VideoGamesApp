@@ -63,14 +63,18 @@ const CardsContainer = ({ games, allGames, order }) => {
   
 
   return (
-    <div className="cards-container">
-      <Paginado gamesPerPage={gamesPerPage} games={games.length} setCurrentPage={setCurrentPage}/>
-      {
-        renderGames().map((game) => (
-          <div key={game.id}>
-            <Card key={game.id} name={game.name} image={game.image} genres={game.genres.name} id={game.id}/>
-          </div>
-        ))}
+    <div>
+      <div className="paginado-container">
+        <Paginado gamesPerPage={gamesPerPage} games={games.length} setCurrentPage={setCurrentPage}/>
+      </div>
+      <div className="cards-container">
+        {
+          renderGames().map((game) => (
+            <div key={game.id}>
+              <Card key={game.id} name={game.name} image={game.image} genres={game.genres.map((g) => g.name)} id={game.id}/>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

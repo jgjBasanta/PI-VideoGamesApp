@@ -1,7 +1,18 @@
 .page-link {
-    text-decoration: none;
-    color: white;
+    width: 35px;
+    height: 24px;
+    color: #000000;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    background-color: #37ff00;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: #37ff00 2px solid;
+    font-size: 18px;
+    margin: 2px;
 }
 
 .page-list {
@@ -15,9 +26,9 @@
 }
 
 .pagination-container {
-    border: 5px solid white;
     display: flex;
     justify-content: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    display: flex;
 }

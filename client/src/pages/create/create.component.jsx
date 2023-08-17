@@ -98,53 +98,59 @@ const Create = () => {
     return (
 
         <div className="form-container">
-            <Link to="/home">Go Back to Home</Link>
-            <h1>Add Your Game</h1>
+            <div className="details-navbar-container">
+                <div className='page-name-container'>
+                    <Link className="go-home" to='/home'>
+                        <button className='page-name'>IVGDB</button>
+                    </Link>
+                </div>
+            </div>
+            <h1 className='form-title'>Add Your Game</h1>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>VideoGame Name:</label>
-                    <input value={input.name} name='name' onChange={handleChange} type="text"/>
+                <div className='form-input-container'>
+                    <label className='form-label'>VideoGame Name:</label>
+                    <input className='form-input' value={input.name} name='name' onChange={handleChange} type="text"/>
                     {errors.name && (
                         <p className='form-error'>{errors.name}</p>
                     )}
                 </div>
-                <div>
-                    <label>Description:</label>
-                    <input value={input.description} name='description' onChange={handleChange} type="text"/>
-                    {errors.description && (
-                        <p className='form-error'>{errors.description}</p>
-                    )}
-                </div>
-                <div>
-                    <label>Platforms:</label>
-                    <input value={input.platforms} name='platforms' onChange={handleChange} type="text"/>   
+                <div className='form-input-container'>
+                    <label className='form-label'>Platforms:</label>
+                    <input className='form-input' value={input.platforms} name='platforms' onChange={handleChange} type="text"/>   
                     {errors.platforms && (
                         <p className='form-error'>{errors.platforms}</p>
                     )} 
                 </div>
-                <div>
-                    <label>Release Date:</label>
-                    <input value={input.released} name='released' onChange={handleChange} type="text"/>
+                <div className='form-input-container'>
+                    <label className='form-label'>Release Date:</label>
+                    <input className='form-input' value={input.released} name='released' onChange={handleChange} type=""/>
                     {errors.released && (
                         <p className='form-error'>{errors.released}</p>
                     )}
                 </div>
-                <div>    
-                    <label>Rating:</label>
-                    <input value={input.rating} name='rating' onChange={handleChange} type="text"/>
+                <div className='form-input-container'>    
+                    <label className='form-label'>Rating:</label>
+                    <input className='form-input' value={input.rating} name='rating' onChange={handleChange} type="text"/>
                     {errors.rating && (
                         <p className='form-error'>{errors.rating}</p>
                     )}
                 </div>
-                <div>    
-                    <label>Image:</label>
-                    <input value={input.image} name='image' onChange={handleChange} type="text"/>
+                <div className='form-input-container'>    
+                    <label className='form-label'>Image:</label>
+                    <input className='form-input' value={input.image} name='image' onChange={handleChange} type="text"/>
                     {errors.image && (
                         <p className='form-error'>{errors.image}</p>
                     )}
                 </div>
-                <div>    
-                    <label>Select 1 or more Genres:</label>
+                <div className='form-input-container'>
+                    <label className='form-label'>Description:</label>
+                    <input className='form-input-description' value={input.description} name='description' onChange={handleChange} type="text"/>
+                    {errors.description && (
+                        <p className='form-error'>{errors.description}</p>
+                    )}
+                </div>
+                <div className='form-input-container'>    
+                    <label className='form-label'>Select 1 or more Genres:</label>
                     <select onChange={(e) => handleSelect(e)} className='create-form-select-genres'>
                     {allGenres.map(genre => (
                         <option key={genre.id} value={genre.name}>{genre.name}</option>
@@ -154,11 +160,13 @@ const Create = () => {
                         <p className='form-error'>{errors.genres}</p>
                     )}
                 </div>
-                <div>
+                <div className='form-input-container'>
                     <ul>
-                        <li>{input.genres.map(genre => genre + ' - ')}</li>
+                        <li className='genres-li'>Generos Seleccionados:</li>
+                        {input.genres.map(genre => (<li className='create-form-genres'>{genre}</li>))}
                     </ul>
                 </div>
+                
 
                 <button type="submit" className='create-button' disabled={disableSubmit()}>Submit</button>
             </form>

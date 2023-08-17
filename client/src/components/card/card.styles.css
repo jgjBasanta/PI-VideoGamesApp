@@ -1,42 +1,90 @@
 .game-card {
-    display: flex;
-    flex-direction: column;
-    background-color: #f96d00;
-    border: 1px solid white;
-    border-radius: 5px;
-    padding: 16px;
-    /* cursor: pointer;
-    -moz-osx-font-smoothing: grayscale;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    transition: transform 0.25s ease-out; */
-    width: 205px;
-    height: 400px;
-    margin: 28px;
+    margin: 0 2px 20px 2px;
+    background-color: black;
+    border-radius: 20px;
+    border: #37ff00 3px solid;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 216px;
+    height: 340px;
+
 }
 
 .game-card:hover {
     transform: scale(1.02);
+    border: #37ff00 3px solid;
+
 }
 
-.game-image {
-    width:  200px;
-    height: 300px;
+.game-image{
+    width: 218px;
+    height: 227px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    margin: auto;
+    object-position: top;
+    padding: 0;
+    margin-left: -5px;
+    margin-right: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    text-align: center;
+    border-bottom: 3px solid #37ff00;
 }
 
 .game-name {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-top: 10px;
+    margin-bottom: 2px;
     color: white;
+    height: 50px;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 0;
+}
+
+.card-details-link{
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
 }
   
 .game-genres {
-    font-size: 14px;
+    font-size: 13px;
     color: white;
     margin-bottom: 8px;
+    height: 15px;
+    display: inline;
+    padding: 5px;
+    align-items: top;
+    margin-top: 1px;
+}
+
+/* .game-name-container{
+    height: 40px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-left: 0;
+    margin-right: 0;
+    border: 1px solid black;
+} */
+
+.game-genres-container{
+    padding-top: 8px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-info-container {
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }

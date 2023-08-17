@@ -1,0 +1,55 @@
+.landing-container {
+	background-image: url('../../assets/Fate-of-Game-Preservation-Games-GettyImages-1170073827.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100vh;
+	position: relative;
+}
+
+/* body {
+    overflow: hidden;
+} */
+
+.landing-button {
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-style: bold;
+  color: #000000;
+  text-decoration: none;
+  font-size: large;
+  text-align: center;
+  background-color: #86fe3f;
+  border: 3px solid #b43591;
+  transition: all 0.3s;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+
+}
+
+.landing-title {
+    font-size: 48px;
+    color: #86fe3f;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #000000;
+    margin: 0;
+    height: fit-content;
+  }
+
+.landing-title-container{
+    width: 100%;
+    height: fit-content;
+    background-color: #000000;
+    position: absolute;
+    text-align: center;
+    margin: 0;
+    
+
+}

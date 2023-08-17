@@ -15,6 +15,7 @@ const NavBar = ({
 })=>{
     const dispatch = useDispatch();
     const [ name, setName ] = useState("");
+    const [ blankSearch, setBlankSearch ] = useState("");
 
     function handleSearchChange(e){
         e.preventDefault();
@@ -27,28 +28,52 @@ const NavBar = ({
         dispatch(getGamesByName(name));
     }
 
+    const onClick = () => {
+        
+    }
+
     return(
         <div className='navbar-container'>
-            <select onChange={e => handleFilterBySource(e.target.value)} className='select-api-db'>
-                <option value='all'>All Games</option>
-                <option value='api'>API Games</option>
-                <option value='db'>DB Games</option>
-            </select>
-            <div className='searchbar-container'>
-                    <input type='text' placeholder='Search Games' className='searchbar' onChange={(e)=> handleSearchChange(e)}/>
-                    <button type='submit' onClick={(e)=> handleSubmit(e)}>Search</button>
+            <div className='page-name-container'>
+                <h1 className='page-name'>IVGDB</h1>
             </div>
-            <select onChange={e => handleFilteredGenres(e.target.value)} className='select-genres'>
-                <option value={'All Genres'}>All Genres</option>
-                {allGenres.map(genre => (
-                    <option key={genre.id} value={genre.name}>{genre.name}</option>
-                ))}
-            </select>
-            <button onClick={handleNameSort}>Ordenar por nombre</button>
-            <button onClick={handleRatingSort}>Ordenar por rating</button>
-            <div>
-                <Link to="/create">
-                    <button className='go-to-create-button'>Crear juego</button>
+            <div className='select-container'>
+                <div>
+                    <select onChange={e => handleFilterBySource(e.target.value)} className='select-api-db'>
+                        <option value='all'>All Games</option>
+                        <option value='api'>API Games</option>
+                        <option value='db'>DB Games</option>
+                    </select>
+                </div>
+                <div>
+                    <select onChange={e => handleFilteredGenres(e.target.value)} className='select-genres'>
+                        <option className='option' value={'All Genres'}>All Genres</option>
+                        {allGenres.map(genre => (
+                            <option key={genre.id} value={genre.name}>{genre.name}</option>
+                        ))}
+                    </select>
+                </div>
+            </div>
+            <div className='searchbar-container'>
+                <div>
+                    <input type='text' placeholder='Search Games by Name or ID' className='searchbar' onChange={(e)=> handleSearchChange(e)}/>
+                </div>
+                <div>
+                    <button className='search-button' type='submit' onClick={(e)=> handleSubmit(e)}></button>
+                </div>
+            </div>
+            <div className='sort-container'>
+                <div>
+                    <button className='sort-atoz-button' onClick={handleNameSort}>A/Z</button>
+                </div>
+                <div>
+
+                    <button className='sort-rating-button' onClick={handleRatingSort}>*</button>
+                </div>
+            </div>
+            <div className="go-create-container">
+                <Link className="create-link" to="/create">
+                    <button className='go-create-button'>Add Game</button>
                 </Link>
             </div>
 

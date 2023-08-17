@@ -54,13 +54,15 @@ function Home(){
 
     return(
         <div>
+          {/* <div className="landing-title-container">
+            <h1 className="landing-title">Internet VideoGame Data Base</h1>
+          </div> */}
+          <div>
             <NavBar allGenres={allGenres} handleFilteredGenres={handleFilterByGenres} handleNameSort={handleNameSort} handleRatingSort={handleRatingSort} handleFilterBySource={handleFilterBySource}/>
-            {/* <Link to="/game">crear juego
-            <button onClick={e=>{handleClick(e)}}>load all games</button>
-            </Link> */}
-            {/* <Paginado gamesPerPage={gamesPerPage} allGames={allGames.length} setCurrentPage={setCurrentPage}/> */}
+          </div>
+          <div>
             <CardsContainer allGames ={allGames} games={games} order={order}/>
-            
+          </div>
         </div>
     )
 }
