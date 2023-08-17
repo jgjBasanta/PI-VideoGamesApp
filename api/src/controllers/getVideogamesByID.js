@@ -16,7 +16,7 @@ const getGamesByIDFromAPI = async (id) => {
             image: game.background_image,
             rating: game.rating,
             platforms: game.platforms.map((platform) => platform.platform.name),
-            genres: game.genres.map((genre) => genre.name),
+            genres: game.genres.map((genre) => [{id: genre.id, genre: genre.name}]),
         };
         return data;
     } catch (error) {
