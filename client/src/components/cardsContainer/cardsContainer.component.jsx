@@ -71,7 +71,7 @@ const CardsContainer = ({ games, allGames, order }) => {
         {
           renderGames().map((game) => (
             <div key={game.id}>
-              <Card key={game.id} name={game.name} image={game.image} genres={game.genres.map((g) => g.name)} id={game.id}/>
+              <Card key={game.id} name={game.name} image={game.image} genres={game.genres.map((g) => g.name)} rating={game.rating} id={game.id}/>
             </div>
           ))}
       </div>

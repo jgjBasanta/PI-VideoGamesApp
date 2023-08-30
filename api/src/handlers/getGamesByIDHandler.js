@@ -5,12 +5,24 @@ const { getGamesByIDFromDB, getGamesByIDFromAPI } = require('../controllers/getV
 const getGamesByIDHandler = async (req, res, next) => {
     
     const gameID = req.params.id;
+    console.log(gameID);
     try{
-        if(gameID.includes("-")) {
+        if(isNaN(gameID)) {
+            // let gameData = async getGamesByIDFromDB(gameID);
+            // let gameDetails = {
+            //     id: gameData.id,
+            //     name: gameData.name,
+            //     description: gameData.description,
+            //     released: gameData.released,
+            //     image: gameData.image,
+            //     rating: gameData.rating,
+            //     platforms: gameData.platforms.map((platform) => platform.platform.name),
+            //     genres: gameData.genres.map((genre) => [{id: genre.id, genre: genre.name}])
+            // }
             res.status(200).send(await getGamesByIDFromDB(gameID));        
         } else {
-            const gameIDNumber = parseInt(gameID);
-            res.status(200).send(await getGamesByIDFromAPI(gameIDNumber));
+            // const gameIDNumber = parseInt(gameID);
+            res.status(200).send(await getGamesByIDFromAPI(gameID));
         }
     } catch (error) {
         res.status(400).send({error:error.message});
@@ -18,3 +30,5 @@ const getGamesByIDHandler = async (req, res, next) => {
 }
 
 module.exports = getGamesByIDHandler;
+
+// typeof gameID === 'string'

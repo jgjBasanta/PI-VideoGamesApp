@@ -6,7 +6,7 @@ const API_KEY = process.env.API_KEY;
 
 const getAllGenres = async () => {
     try {
-        const res = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`);
+        const res = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`, {timeout: 30000});
         const genres = res.data.results.map((genre) => ({
             id: genre.id,
             name: genre.name})

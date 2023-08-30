@@ -3,6 +3,8 @@ const initialState = {
     allGames : [],
     genres : [],
     gameDetails : [],
+    platforms : [],
+    createGameStatus: '',
 }
 
 function rootReducer(state = initialState, action) {
@@ -51,6 +53,13 @@ function rootReducer(state = initialState, action) {
         case 'POST_GAME':
             return {
               ...state,
+              createGameStatus: action.payload,
+            }
+        
+        case 'GET_ALL_PLATFORMS':
+            return {
+              ...state,
+              platforms: action.payload
             }
         
         default:

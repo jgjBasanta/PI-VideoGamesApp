@@ -5,6 +5,7 @@ const { Videogame, Genres } = require('../../src/db');
 const API_KEY = process.env.API_KEY;
 
 const getGamesByIDFromAPI = async (id) => {
+    console.log(id);
     try {
         const res = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
         const game = res.data;
@@ -16,8 +17,9 @@ const getGamesByIDFromAPI = async (id) => {
             image: game.background_image,
             rating: game.rating,
             platforms: game.platforms.map((platform) => platform.platform.name),
-            genres: game.genres.map((genre) => [{id: genre.id, genre: genre.name}]),
+            genres: game.genres.map((genre) => ({id: genre.id, name: genre.name})),
         };
+        console.log(data);
         return data;
     } catch (error) {
         console.error("Error while fetching data from the API:", error.message);
@@ -26,10 +28,35 @@ const getGamesByIDFromAPI = async (id) => {
 }
 
 const getGamesByIDFromDB = async (id) => {
-    return await Videogame.findByPk(id);
+    console.log(id);
+    try{
+        const res = await Videogame.findOne({
+            where: {id: id},
+            include: Genres
+        });
+        const data = res.toJSON();
+        
+        console.log(data);
+        return data;
+    }catch(error){
+        console.error("Error while fetching data from the DB:", error.message);
+        throw error;
+    }
 }
 
 module.exports = {
     getGamesByIDFromAPI,
     getGamesByIDFromDB
 }
+
+
+// const game = {
+        //     id: data.id,
+        //     name: data.name,
+        //     description: data.description,
+        //     released: data.released,
+        //     image: data.image,
+        //     rating: data.rating,
+        //     platforms: data.platforms.map((platform) => platform.platform.name),
+        //     genres: data.genres.map((genre) => [{id: genre.id, genre: genre.name}]),
+        // }

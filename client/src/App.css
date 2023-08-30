@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  background-color: black;
+}
+
+body {
+  background-color: black;
+  color: black;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
 }
 
 h1 {

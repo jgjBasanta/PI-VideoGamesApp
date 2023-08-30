@@ -1,0 +1,11 @@
+.form-select-input {
+    width: 400px;
+    outline: none;
+    text-align: center;
+    color: white;
+    background-color: #000000;
+    border: #37ff00 2px solid;
+    border-radius: 50px;
+    height: 30px;
+    
+}

@@ -1,7 +1,7 @@
 import '../card/card.styles.css';
 import {Link} from "react-router-dom";
 
-const Card = ({ name, image, genres, id})=>{
+const Card = ({ name, image, genres, id, rating})=>{
     const gameID = id;
     console.log(gameID);
     return(
@@ -18,6 +18,9 @@ const Card = ({ name, image, genres, id})=>{
                         <p className='game-genres'>{genres[0]}</p>
                         <p>-</p>
                         <p className='game-genres'>{genres[1]}</p>
+                    </div>
+                    <div>
+                        <p>{rating}</p>
                     </div>
                 </div>
             </Link>

@@ -11,7 +11,7 @@ function Details() {
     const { id } = useParams();
     const game = useSelector(state => state.gameDetails);
     useEffect(() => {
-        dispatch(getGameByID(Number(id)))
+        dispatch(getGameByID(id))
     }, [id])
     console.log(useParams());
     console.log(game);
@@ -53,11 +53,10 @@ function Details() {
                 <p>Rating: {game.rating} / 5</p>
             </div>
             <div className="details-genres-container">
-                {game.genres?.flatMap((genreArray) => (
-                    genreArray.map((genre) => (
-                        <p className="details-genres" key={genre.id}>{genre.genre}</p>
+                {game.genres?.map((genre) => (
+                        <p className="details-genres" key={genre.id}>{genre.name}</p>
                     ))
-                ))}
+                }
             </div>
 
         </div>

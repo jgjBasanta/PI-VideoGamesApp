@@ -9,7 +9,7 @@ const getGamesFromAPI = async () => {
       let dataFromAPI = [];
   
       for (let i = 1; i <= 5; i++) {
-        const res = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${i}`);
+        const res = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${i}`,{timeout: 30000});
         dataFromAPI.push(
           ...res.data.results.map((videogame) => ({
             id: videogame.id,
